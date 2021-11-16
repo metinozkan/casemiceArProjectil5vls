@@ -31,11 +31,14 @@
       });
 
       document.getElementById("btn1").addEventListener("click", (e) => {
-        var v = (document.querySelector("#vid").muted = false);
+        var v = document.querySelector("#vid");
+        v.muted = false;
       });
 
       document.getElementById("btn2").addEventListener("click", (e) => {
-        var v = (document.querySelector("#vid").muted = true);
+        var v = document.querySelector("#vid");
+        v.muted = false;
+
       });
 
       window.addEventListener("click", function () {
