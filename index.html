@@ -48,6 +48,7 @@
             "markerFound",
             function () {
               this.toggle = true;
+              this.vid.muted = "false";
               this.vid.play();
             }.bind(this)
           );
@@ -134,9 +135,19 @@
         "click",
         function (e) {
           var v = document.getElementById("vid");
-          window.alert(v.paused);
-          v.muted = false;
+          //   v.play();
+
+          //   if (!v.paused && !video.ended) {
+          //     v.pause();
+          //   } else if (v.paused && !v.ended) {
           v.play();
+          v.muted = false;
+          //   }
+
+          // else {
+          //   v.currentTime = 0;
+          //   v.play();
+          // }
         }.bind(this)
       );
       //  document.getElementById("btn1").onclick = function () {
