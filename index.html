@@ -61,39 +61,6 @@
           );
         },
       });
-
-      document.getElementById("btn1").addEventListener(
-        "click",
-        function (e) {
-          var v = document.getElementById("vid");
-
-          v.muted = false;
-        }.bind(this)
-      );
-
-      document.getElementById("btn2").addEventListener(
-        "click",
-        function (e) {
-          var v = document.getElementById("vid");
-
-          v.muted = true;
-        }.bind(this)
-      );
-      document.getElementById("btn3").addEventListener(
-        "click",
-        function (e) {
-          var v = document.getElementById("vid");
-          v.play();
-        }.bind(this)
-      );
-
-      document.getElementById("btn4").addEventListener(
-        "click",
-        function (e) {
-          var v = document.getElementById("vid");
-          v.pause();
-        }.bind(this)
-      );
     </script>
   </head>
 
@@ -106,10 +73,10 @@
       z-index: 1;
     "
   >
-    <button class="button" id="btn1">Play sound</button>
-    <button class="button" id="btn2">stop sound</button>
+    <button class="button" id="btn1">Play video</button>
+    <!-- <button class="button" id="btn2">stop sound</button>
     <button class="button" id="btn3">Play video</button>
-    <button class="button" id="btn4">stop video</button>
+    <button class="button" id="btn4">stop video</button> -->
   </div>
 
   <body style="margin: 0; overflow: hidden">
@@ -162,5 +129,48 @@
 
       <a-entity camera></a-entity>
     </a-scene>
+    <script>
+      document.getElementById("btn1").addEventListener(
+        "click",
+        function (e) {
+          var v = document.getElementById("vid");
+          window.alert("clicked");
+
+          if (v.paused) {
+            v.muted = false;
+            v.play();
+          } else {
+            v.pause();
+          }
+        }.bind(this)
+      );
+      //  document.getElementById("btn1").onclick = function () {
+      //         var v = document.getElementById("vid");
+      //         v.muted = false;
+      //         window.alert("btn1 onClick");
+      //       };
+      //   document.getElementById("btn2").addEventListener(
+      //     "click",
+      //     function (e) {
+      //       var v = document.getElementById("vid");
+      //       v.muted = true;
+      //     }.bind(this)
+      //   );
+      //   document.getElementById("btn3").addEventListener(
+      //     "click",
+      //     function (e) {
+      //       var v = document.getElementById("vid");
+      //       v.play();
+      //     }.bind(this)
+      //   );
+
+      //   document.getElementById("btn4").addEventListener(
+      //     "click",
+      //     function (e) {
+      //       var v = document.getElementById("vid");
+      //       v.pause();
+      //     }.bind(this)
+      //   );
+    </script>
   </body>
 </html>
