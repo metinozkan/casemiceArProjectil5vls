@@ -7,46 +7,61 @@
     <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
     <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     <script>
-            AFRAME.registerComponent("videohandler", {
-              init: function () {
-                var marker = this.el;
-                this.vid = document.querySelector("#vid");
+      AFRAME.registerComponent("videohandler", {
+        init: function () {
+          var marker = this.el;
+          this.vid = document.querySelector("#vid");
 
-                marker.addEventListener(
-                  "markerFound",
-                  function () {
-                    this.toggle = true;
-                    this.vid.play();
-                  }.bind(this)
-                );
+          marker.addEventListener(
+            "markerFound",
+            function () {
+              this.toggle = true;
+              this.vid.play();
+            }.bind(this)
+          );
 
-                marker.addEventListener(
-                  "markerLost",
-                  function () {
-                    this.toggle = false;
-                    this.vid.pause();
-                  }.bind(this)
-                );
-              },
-            });
+          marker.addEventListener(
+            "markerLost",
+            function () {
+              this.toggle = false;
+              this.vid.pause();
+            }.bind(this)
+          );
+        },
+      });
 
-            document.getElementById("btn1").addEventListener("click", (e) => {
-              var v = document.querySelector("#vid");
-              v.muted = false;
-            });
+      document.getElementById("btn1").addEventListener(
+        "click",
+        function (e) {
+          var v = document.getElementById("vid");
 
-            document.getElementById("btn2").addEventListener("click", (e) => {
-              var v = document.querySelector("#vid");
-              v.muted = false;
+          v.muted = false;
+        }.bind(this)
+      );
 
-            });
+      document.getElementById("btn2").addEventListener(
+        "click",
+        function (e) {
+          var v = document.getElementById("vid");
 
-            window.addEventListener("click", function () {
-              var v = document.querySelector("#vid");
-              v.muted = false;
-            });
-            // open new pages in home screen web app on iOS, not in mobile safari
-      (function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEvent Listener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
+          v.muted = true;
+        }.bind(this)
+      );
+      document.getElementById("btn3").addEventListener(
+        "click",
+        function (e) {
+          var v = document.getElementById("vid");
+          v.play();
+        }.bind(this)
+      );
+
+      document.getElementById("btn4").addEventListener(
+        "click",
+        function (e) {
+          var v = document.getElementById("vid");
+          v.pause();
+        }.bind(this)
+      );
     </script>
   </head>
 
@@ -61,6 +76,8 @@
   >
     <button class="button" id="btn1">Play sound</button>
     <button class="button" id="btn2">stop sound</button>
+    <button class="button" id="btn3">Play video</button>
+    <button class="button" id="btn4">stop video</button>
   </div>
 
   <body style="margin: 0; overflow: hidden">
